@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1> ¡ Hola mundo !</h1>
+<div>
+    <form method="post" th:action="@{/procesa}">
+        <input type="text" name="dato" required/>
+        <input type="text" name="otrodato" required/>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>
