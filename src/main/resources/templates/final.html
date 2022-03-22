@@ -23,26 +23,20 @@
         <div class="col">
         </div>
         <div class="col-8">
-            <h1>Nota</h1>
+            <h1>Resultado</h1>
             <div id="tarjeta">
-                <form method="post" th:action="@{/procesa}">
-                    <div class="mb-3">
-                        <label for="titulo" class="form-label">Título de la nota</label>
-                        <input type="text" id="titulo" name="titulo" class="form-control"
-                               placeholder="Introduce el título" required/>
-                    </div>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Introduce tu texto aquí" id="nota" name="nota"
-                                  style="height: 100px"></textarea>
-                        <label for="nota">Aquí va tu nota</label>
-                    </div>
-                    <button style="margin-top: 14px;" class="btn btn-warning" type="submit">Enviar</button>
-                </form>
+                <div class="mb-3">
+                    <h4 th:text="${titulo}"></h4>
+                </div>
+                <div class="form-floating">
+                    <p th:text="${nota}">
+                    </p>
+                </div>
             </div>
+            <a class="btn btn-warning" th:href="@{/}" style="margin-top: 13px"> Volver al Inicio</a>
         </div>
         <div class="col">
         </div>
-
     </div>
 </div>
 </body>

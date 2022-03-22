@@ -2,6 +2,7 @@ package com.example.proyecto.controlador;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,10 +17,14 @@ public class Controlador {
     }
 
     @PostMapping("/procesa")
-    public String procesa(HttpServletRequest request) {
-        String dato = request.getParameter("dato");
-        System.out.println("dato -> " + dato);
-        return "index";
+    public String procesa(HttpServletRequest request, Model model ) {
+        String titulo = request.getParameter("titulo");
+        String nota = request.getParameter("nota");
+        System.out.println("titulo -> " + titulo);
+        System.out.println("nota -> " + nota);
+        model.addAttribute("titulo", titulo);
+        model.addAttribute("nota", nota);
+        return "final";
     }
 
 }
