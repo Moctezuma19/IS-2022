@@ -9,11 +9,12 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <style>
-        #tarjeta {
+        .tarjeta {
             border: 1px solid lightgray;
             border-radius: 11px;
             padding: 22px;
             box-shadow: 2px 2px lightgray;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -24,12 +25,12 @@
         </div>
         <div class="col-8">
             <h1>Resultado</h1>
-            <div id="tarjeta">
+            <div class="tarjeta" th:each="nota : ${notas}">
                 <div class="mb-3">
-                    <h4 th:text="${titulo}"></h4>
+                    <h4 th:text="${nota.titulo}"></h4>
                 </div>
                 <div class="form-floating">
-                    <p th:text="${nota}">
+                    <p th:text="${nota.texto}">
                     </p>
                 </div>
             </div>
