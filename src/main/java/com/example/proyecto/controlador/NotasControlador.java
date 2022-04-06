@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class Controlador {
-
+@RequestMapping("/notas")
+public class NotasControlador {
 
     @Autowired
     private NotaServicio notaServicio;
 
     @RequestMapping("/")
-    public String index() {
-        return "index";
+    public String nuevaNota(){
+        return "nueva_nota";
     }
 
     @PostMapping("/procesa")

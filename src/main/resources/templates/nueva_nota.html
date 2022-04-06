@@ -9,12 +9,11 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <style>
-        .tarjeta {
+        #tarjeta {
             border: 1px solid lightgray;
             border-radius: 11px;
             padding: 22px;
             box-shadow: 2px 2px lightgray;
-            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -24,21 +23,27 @@
         <div class="col">
         </div>
         <div class="col-8">
-            <h1>Resultado</h1>
-            <div class="tarjeta" th:each="nota : ${notas}">
-                <div class="mb-3">
-                    <h4 th:text="${nota.titulo}"></h4>
-                </div>
-                <div class="form-floating">
-                    <p th:text="${nota.texto}">
-                    </p>
-                </div>
+            <h1>Nota</h1>
+            <div id="tarjeta">
+                <form method="post" th:action="@{/notas/procesa}">
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título de la nota</label>
+                        <input type="text" id="titulo" name="titulo" class="form-control"
+                               placeholder="Introduce el título" required/>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Introduce tu texto aquí" id="nota" name="nota"
+                                  style="height: 100px"></textarea>
+                        <label for="nota">Aquí va tu nota</label>
+                    </div>
+                    <button style="margin-top: 14px;" class="btn btn-warning" type="submit">Enviar</button>
+                </form>
             </div>
-            <a class="btn btn-warning" th:href="@{/}" style="margin-top: 13px"> Volver al Inicio</a>
             <a class="btn btn-warning" th:href="@{/salir}" style="margin-top: 13px"> Salir </a>
         </div>
         <div class="col">
         </div>
+
     </div>
 </div>
 </body>
