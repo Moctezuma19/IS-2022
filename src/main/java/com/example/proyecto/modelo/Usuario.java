@@ -1,5 +1,6 @@
 package com.example.proyecto.modelo;
 
+import com.example.proyecto.util.Rol;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,4 +17,7 @@ public class Usuario {
     private String nombre;
     @Column
     private String password;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 }

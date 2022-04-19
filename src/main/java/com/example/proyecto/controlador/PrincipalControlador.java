@@ -20,7 +20,7 @@ public class PrincipalControlador {
         }
 
         if (principal != null) {
-            return "redirect:/";
+            return "redirect:/notas/";
         }
         return "index";
     }

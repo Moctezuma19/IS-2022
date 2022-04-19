@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Notas</title>
     <!-- CSS only -->
@@ -39,11 +39,12 @@
                     <button style="margin-top: 14px;" class="btn btn-warning" type="submit">Enviar</button>
                 </form>
             </div>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuarios/}" style="margin-top: 13px"> Lista de Usuarios </a>
+            <br/>
             <a class="btn btn-warning" th:href="@{/salir}" style="margin-top: 13px"> Salir </a>
         </div>
         <div class="col">
         </div>
-
     </div>
 </div>
 </body>

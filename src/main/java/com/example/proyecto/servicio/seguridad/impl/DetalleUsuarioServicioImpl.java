@@ -1,4 +1,4 @@
-package com.example.proyecto.servicio.impl;
+package com.example.proyecto.servicio.seguridad.impl;
 
 import com.example.proyecto.modelo.Usuario;
 import com.example.proyecto.repositorio.UsuarioRepositorio;
@@ -23,12 +23,12 @@ public class DetalleUsuarioServicioImpl implements DetalleUsuarioServicio, UserD
     @Override
     public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
         Usuario usuarioActivo = usuarioRepositorio.findByNombre(nombre);
-        if(usuarioActivo == null){
+        if (usuarioActivo == null) {
             throw new UsernameNotFoundException("name not found");
         }
         UserDetails userDetails;
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_ADMIN");
-        userDetails = (UserDetails) new User(usuarioActivo.getNombre(), usuarioActivo.getPassword(), Arrays.asList(grantedAuthority));
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioActivo.getRol().toString());
+        userDetails = new User(usuarioActivo.getNombre(), usuarioActivo.getPassword(), Arrays.asList(grantedAuthority));
         return userDetails;
     }
 }
