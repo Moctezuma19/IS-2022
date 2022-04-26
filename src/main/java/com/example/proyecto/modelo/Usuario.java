@@ -4,6 +4,8 @@ import com.example.proyecto.util.Rol;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Table(name = "Usuario")
@@ -20,4 +22,6 @@ public class Usuario {
     @Column
     @Enumerated(EnumType.STRING)
     private Rol rol;
+    @OneToMany(mappedBy = "usuario", targetEntity = Nota.class)
+    private List<Nota> notas = new ArrayList<>();
 }

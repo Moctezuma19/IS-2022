@@ -16,4 +16,10 @@ public class Nota {
     private String titulo;
     @Column
     private String texto;
+    @Column(name = "idusuario")
+    private Integer idUsuario;
+
+    @ManyToOne(targetEntity = Usuario.class)
+    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario", nullable = false, insertable = false, updatable = false)
+    private Usuario usuario;
 }
