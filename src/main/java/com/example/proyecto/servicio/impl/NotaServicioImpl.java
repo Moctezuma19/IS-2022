@@ -20,8 +20,8 @@ public class NotaServicioImpl implements NotaServicio {
     private UsuarioRepositorio usuarioRepositorio;
 
     @Override
-    public Nota agregaNota(String nombre_usuario, String titulo, String texto) {
-        Usuario usuario = usuarioRepositorio.findByNombre(nombre_usuario);
+    public Nota agregaNota(Integer idUsuario, String titulo, String texto) {
+        Usuario usuario = usuarioRepositorio.findById(idUsuario).orElse(null);
         if (usuario == null) {
             return null;
         }
@@ -34,8 +34,8 @@ public class NotaServicioImpl implements NotaServicio {
     }
 
     @Override
-    public List<Nota> todas(String nombre_usuario) {
-        Usuario usuario = usuarioRepositorio.findByNombre(nombre_usuario);
+    public List<Nota> todas(Integer idUsuario) {
+        Usuario usuario = usuarioRepositorio.findById(idUsuario).orElse(null);
         if (usuario == null) {
             return new ArrayList<>();
         }
